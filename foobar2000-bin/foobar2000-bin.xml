@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+	<mime-type type="application/x-fb2k-playlist">
+		<comment>foobar2000 playlist</comment>
+		<comment xml:lang="fr">liste de lecture foobar2000</comment>
+		<icon name="application-x-fb2k-playlist"/>
+		<glob pattern="*.fpl"/>
+	</mime-type>
+	<mime-type type="application/x-fb2k-theme">
+		<comment>foobar2000 theme</comment>
+		<comment xml:lang="fr">thème foobar2000</comment>
+		<icon name="application-x-fb2k-theme"/>
+		<glob pattern="*.fth"/>
+	</mime-type>
+	<mime-type type="application/x-fb2k-component">
+		<sub-class-of type="application/zip"/>
+		<comment>foobar2000 component</comment>
+		<comment xml:lang="fr">module foobar2000</comment>
+		<icon name="application-x-fb2k-component"/>
+		<glob pattern="*.fb2k-component"/>
+	</mime-type>
+</mime-info>
