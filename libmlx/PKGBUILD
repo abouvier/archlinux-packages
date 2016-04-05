@@ -1,0 +1,38 @@
+# Maintainer: abouvier <abouvier at student.42 dot fr>
+pkgname=libmlx
+pkgver=20140106
+pkgrel=1
+pkgdesc="Simple X-Window (X11R6) programming API in C, designed for students, suitable for X-beginners"
+arch=('i686' 'x86_64')
+url="http://www.42.fr/"
+license=('unknown')
+depends=('libxext' 'libbsd')
+source=(
+	'https://projects.intra.42.fr/uploads/document/document/7/sources.tgz'
+	'mlx.pc'
+)
+md5sums=(
+	'687a3336cce08e20ab5f361f5be08284'
+	'SKIP'
+)
+
+prepare() {
+	cd minilibx
+	sed -i \$d configure
+	for man in man/man3/*.1 ; do
+		mv "$man" "${man/%.1/.3}"
+	done
+}
+
+build() {
+	cd minilibx
+	make re
+}
+
+package() {
+	cd minilibx
+	install -Dm644 -t "$pkgdir/usr/lib" libmlx.a
+	install -Dm644 -t "$pkgdir/usr/lib/pkgconfig" "$srcdir/mlx.pc"
+	install -Dm644 -t "$pkgdir/usr/share/man/man3" man/man3/*.3
+	install -Dm644 -t "$pkgdir/usr/include" mlx.h
+}
