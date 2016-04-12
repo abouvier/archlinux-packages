@@ -14,54 +14,59 @@ MimeType=audio/8svx;audio/x-8svx;audio/aac;audio/x-aac;audio/x-aiff;audio/x-aifc
 [Desktop Action Add]
 Name=Append to playlist
 Name[fr]=Ajouter à la liste de lecture
+Icon=list-add
 Exec=foobar2000 --add %F
 
-[Desktop Action Play]
-Name=Play
-Name[fr]=Lecture
-Exec=foobar2000 --play
+[Desktop Action Stop]
+Name=Stop
+Name[fr]=Stop
+Icon=media-playback-stop
+Exec=foobar2000 --stop
 
 [Desktop Action Pause]
 Name=Pause
 Name[fr]=Pause
+Icon=media-playback-pause
 Exec=foobar2000 --pause
 
-[Desktop Action Toggle]
-Name=Toggle play/pause
-Name[fr]=Alterner lecture/pause
-Exec=foobar2000 --playpause
+[Desktop Action Play]
+Name=Play
+Name[fr]=Lecture
+Icon=media-playback-start
+Exec=foobar2000 --play
 
 [Desktop Action Previous]
 Name=Previous track
 Name[fr]=Piste précédente
+Icon=media-skip-backward
 Exec=foobar2000 --prev
 
 [Desktop Action Next]
 Name=Next track
 Name[fr]=Piste suivante
+Icon=media-skip-forward
 Exec=foobar2000 --next
 
 [Desktop Action Random]
 Name=Random track
 Name[fr]=Piste aléatoire
+Icon=media-playlist-shuffle
 Exec=foobar2000 --rand
-
-[Desktop Action Stop]
-Name=Stop
-Name[fr]=Stop
-Exec=foobar2000 --stop
-
-[Desktop Action Exit]
-Name=Exit
-Name[fr]=Quitter
-Exec=foobar2000 --exit
 
 [Desktop Action Show]
 Name=Show window
 Name[fr]=Afficher la fenêtre
+Icon=view-fullscreen
 Exec=foobar2000 --show
 
 [Desktop Action Hide]
 Name=Hide window
 Name[fr]=Masquer la fenêtre
+Icon=view-restore
 Exec=foobar2000 --hide
+
+[Desktop Action Exit]
+Name=Exit
+Name[fr]=Quitter
+Icon=application-exit
+Exec=foobar2000 --exit
