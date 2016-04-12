@@ -1,7 +1,7 @@
 post_install() {
-	xdg-icon-resource forceupdate
-	update-desktop-database /usr/share/applications
 	update-mime-database -n /usr/share/mime
+	update-desktop-database -q /usr/share/applications
+	xdg-icon-resource forceupdate --theme hicolor
 }
 
 post_upgrade() {
