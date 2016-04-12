@@ -11,13 +11,13 @@ makedepends=('p7zip' 'icoutils')
 optdepends=('foobar2000-playcount-bin: playback statistics support')
 install="$pkgname.install"
 source=(
-	"$pkgname-$pkgver.exe::http://www.foobar2000.org/files/f0dd25a16a8b697c02a4a194b548ea3a/foobar2000_v$pkgver.exe"
+	"$pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
 	"$pkgname.desktop"
 	"$pkgname.xml"
 	"$pkgname.sh"
 )
 md5sums=(
-	'e391acfb267f50e785d3f618368699bd'
+	'2994486afdcce7f78d80019a797a8ab2'
 	'SKIP'
 	'SKIP'
 	'SKIP'
