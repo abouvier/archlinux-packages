@@ -12,6 +12,8 @@ optdepends=(
 	'foobar2000-playcount-bin: playback statistics support'
 	'foobar2000-texttools-bin: custom copy to clipboard support'
 )
+provides=("${pkgname%-bin}=$pkgver")
+conflicts=("${pkgname%-bin}")
 install="$pkgname.install"
 source=(
 	"$pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
