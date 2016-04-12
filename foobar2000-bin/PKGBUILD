@@ -8,7 +8,10 @@ url="https://www.foobar2000.org/"
 license=('custom')
 depends=('hicolor-icon-theme' 'xdg-utils' 'shared-mime-info' 'wine' 'unionfs-fuse')
 makedepends=('p7zip' 'icoutils')
-optdepends=('foobar2000-playcount-bin: playback statistics support')
+optdepends=(
+	'foobar2000-playcount-bin: playback statistics support'
+	'foobar2000-texttools-bin: custom copy to clipboard support'
+)
 install="$pkgname.install"
 source=(
 	"$pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
