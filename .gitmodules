@@ -1,0 +1,3 @@
+[submodule "foobar2000-playcount-bin"]
+	path = foobar2000-playcount-bin
+	url = ssh+git://aur@aur.archlinux.org/foobar2000-playcount-bin.git
