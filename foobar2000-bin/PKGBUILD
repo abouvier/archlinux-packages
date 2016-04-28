@@ -1,12 +1,12 @@
 # Maintainer: abouvier <abouvier at student dot 42 dot fr>
 pkgname=foobar2000-bin
 pkgver=1.3.10
-pkgrel=1
+pkgrel=2
 pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
 license=('custom')
-depends=('hicolor-icon-theme' 'xdg-utils' 'shared-mime-info' 'wine' 'unionfs-fuse')
+depends=('wine' 'unionfs-fuse' 'shared-mime-info' 'gtk-update-icon-cache' 'desktop-file-utils')
 makedepends=('p7zip' 'icoutils')
 optdepends=(
 	'foobar2000-playcount-bin: playback statistics support'
@@ -14,7 +14,6 @@ optdepends=(
 )
 provides=("${pkgname%-bin}=$pkgver")
 conflicts=("${pkgname%-bin}")
-install="$pkgname.install"
 source=(
 	"$pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
 	"$pkgname.desktop"
