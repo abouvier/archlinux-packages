@@ -1,8 +1,8 @@
 # Maintainer: abouvier <abouvier at student dot 42 dot fr>
 pkgname=libmlx
 pkgver=20140106
-pkgrel=1
-pkgdesc="Simple X-Window (X11R6) programming API in C, designed for students, suitable for X-beginners"
+pkgrel=2
+pkgdesc="Simple X11 programming API in C, designed for students"
 arch=('i686' 'x86_64')
 url="http://www.42.fr/"
 license=('unknown')

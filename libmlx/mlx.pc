@@ -4,7 +4,7 @@ libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
 Name: MiniLibX
-Description: Simple X-Window (X11R6) programming API in C, designed for students, suitable for X-beginners
+Description: Simple X11 programming API in C, designed for students
 Version: 20140106
 URL: http://www.42.fr/
 Requires: xext x11 libbsd
