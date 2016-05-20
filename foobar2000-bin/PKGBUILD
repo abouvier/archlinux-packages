@@ -1,5 +1,6 @@
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
-pkgname=foobar2000-bin
+_pkgname=foobar2000
+pkgname="$_pkgname-bin"
 pkgver=1.3.10
 pkgrel=2
 pkgdesc="Advanced freeware audio player for the Windows platform"
@@ -9,16 +10,16 @@ license=('custom')
 depends=('wine' 'unionfs-fuse' 'shared-mime-info' 'gtk-update-icon-cache' 'desktop-file-utils')
 makedepends=('p7zip' 'icoutils')
 optdepends=(
-	'foobar2000-playcount-bin: playback statistics support'
-	'foobar2000-texttools-bin: custom copy to clipboard support'
+	"$_pkgname-playcount-bin: playback statistics support"
+	"$_pkgname-texttools-bin: custom copy to clipboard support"
 )
-provides=("${pkgname%-bin}=$pkgver")
-conflicts=("${pkgname%-bin}")
+provides=("$_pkgname=$pkgver")
+conflicts=("$_pkgname")
 source=(
-	"$pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
-	"$pkgname.desktop"
-	"$pkgname.xml"
-	"$pkgname.sh"
+	"$_pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
+	"$_pkgname.desktop"
+	"$_pkgname.xml"
+	"$_pkgname.sh"
 )
 md5sums=(
 	'2994486afdcce7f78d80019a797a8ab2'
@@ -35,11 +36,11 @@ prepare() {
 		-x!'$PLUGINSDIR' \
 		-x!'$R0' \
 		-x!'uninstall.exe' \
-		-o"$pkgname-$pkgver" "$pkgname-$pkgver.exe"
-	cd "$pkgname-$pkgver"
+		-o"$_pkgname-$pkgver" "$_pkgname-$pkgver.exe"
+	cd "$_pkgname-$pkgver"
 	find -type d -exec chmod 755 "{}" +
 	wrestool -xRn225 -o "$srcdir/license.html" foobar2000.exe
-	wrestool -xRn269 -o "$srcdir/${pkgname%-bin}.png" foobar2000.exe
+	wrestool -xRn269 -o "$srcdir/$_pkgname.png" foobar2000.exe
 	icotool -xi7 -o "$srcdir/application-x-fb2k-playlist.png" icons/fpl.ico
 	icotool -xi7 -o "$srcdir/application-x-fb2k-component.png" icons/generic.ico
 	icotool -xi7 -o "$srcdir/application-x-fb2k-theme.png" icons/fth.ico
@@ -49,11 +50,11 @@ prepare() {
 
 package() {
 	install -d "$pkgdir/usr/share"
-	cp -R "$pkgname-$pkgver" "$pkgdir/usr/share/${pkgname%-bin}"
-	install -Dm755 "$pkgname.sh" "$pkgdir/usr/bin/${pkgname%-bin}"
-	install -Dm644 "$pkgname.xml" "$pkgdir/usr/share/mime/packages/${pkgname%-bin}.xml"
-	install -Dm755 "$pkgname.desktop" "$pkgdir/usr/share/applications/${pkgname%-bin}.desktop"
+	cp -R "$_pkgname-$pkgver" "$pkgdir/usr/share/$_pkgname"
+	install -Dm755 "$_pkgname.sh" "$pkgdir/usr/bin/$_pkgname"
+	install -Dm644 "$_pkgname.xml" "$pkgdir/usr/share/mime/packages/$_pkgname.xml"
+	install -Dm755 "$_pkgname.desktop" "$pkgdir/usr/share/applications/$_pkgname.desktop"
 	install -Dm644 -t "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes" application-x-fb2k-*.png
-	install -Dm644 -t "$pkgdir/usr/share/icons/hicolor/256x256/apps" "${pkgname%-bin}.png"
-	install -Dm644 -t "$pkgdir/usr/share/licenses/${pkgname%-bin}" license.html
+	install -Dm644 -t "$pkgdir/usr/share/icons/hicolor/256x256/apps" "$_pkgname.png"
+	install -Dm644 -t "$pkgdir/usr/share/licenses/$_pkgname" license.html
 }
