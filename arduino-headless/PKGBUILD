@@ -1,0 +1,41 @@
+# Maintainer: Alexandre Bouvier <contact at amb dot tf>
+_pkgname=arduino
+pkgname="$_pkgname-headless"
+pkgver=1.6.9
+pkgrel=1
+pkgdesc="Arduino headless prototyping platform SDK"
+arch=('i686' 'x86_64')
+url="https://www.arduino.cc/"
+license=('GPL' 'LGPL')
+depends=('avr-libc' 'avrdude' 'shared-mime-info' 'hicolor-icon-theme')
+optdepends=('arduino-mk: Makefile for Arduino sketches')
+provides=("$_pkgname=$pkgver")
+conflicts=("$_pkgname" 'teensyduino')
+options=(!strip)
+install="$_pkgname.install"
+source=("https://github.com/arduino/${_pkgname^}/archive/$pkgver.tar.gz")
+md5sums=('b1f205208db0065286013e544ecbf48f')
+
+prepare() {
+	cd "${_pkgname^}-$pkgver"
+	sed -i '\#<mime-type type="text/x-arduino">#a<icon name="text-x-arduino"/>' \
+		build/linux/dist/mime.xml
+}
+
+package() {
+	cd "${_pkgname^}-$pkgver"
+	install -d "$pkgdir/usr/share/${_pkgname}"
+	cp -a libraries "$pkgdir/usr/share/${_pkgname}"
+	install -d "$pkgdir/usr/share/${_pkgname}/hardware/arduino"
+	cp -a hardware/arduino/avr "$pkgdir/usr/share/${_pkgname}/hardware/arduino"
+	install -Dm644 -t "$pkgdir/usr/share/doc/${_pkgname}" build/shared/revisions.txt
+	cp -a build/shared/examples "$pkgdir/usr/share/doc/${_pkgname}"
+	install -Dm644 build/linux/dist/mime.xml "$pkgdir/usr/share/mime/packages/${_pkgname}.xml"
+	for size in 16 24 32 48 64 72 96 128 256 ; do
+		install -Dm644 "build/shared/icons/${size}x$size/apps/arduino.png" \
+			"$pkgdir/usr/share/icons/hicolor/${size}x$size/mimetypes/text-x-arduino.png"
+	done
+	# needed by arduino-mk
+	install -d "$pkgdir/usr/share/${_pkgname}/lib"
+	echo -n "$pkgver" > "$pkgdir/usr/share/${_pkgname}/lib/version.txt"
+}
