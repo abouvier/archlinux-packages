@@ -1,4 +1,4 @@
-# Maintainer: abouvier <abouvier at student dot 42 dot fr>
+# Maintainer: Alexandre Bouvier <abouvier at student dot 42 dot fr>
 pkgname=libmlx
 pkgver=20140106
 pkgrel=2

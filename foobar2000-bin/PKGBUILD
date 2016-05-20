@@ -1,4 +1,4 @@
-# Maintainer: abouvier <abouvier at student dot 42 dot fr>
+# Maintainer: Alexandre Bouvier <contact at amb dot tf>
 pkgname=foobar2000-bin
 pkgver=1.3.10
 pkgrel=2
