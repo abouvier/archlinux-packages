@@ -2,9 +2,9 @@
 _pkgname=arduino
 pkgname="$_pkgname-headless"
 pkgver=1.6.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Arduino headless prototyping platform SDK"
-arch=('i686' 'x86_64')
+arch=('any')
 url="https://www.arduino.cc/"
 license=('GPL' 'LGPL')
 depends=('avr-libc' 'avrdude' 'shared-mime-info' 'hicolor-icon-theme')
