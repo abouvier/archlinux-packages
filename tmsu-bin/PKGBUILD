@@ -1,0 +1,27 @@
+#!/bin/bash
+# shellcheck disable=SC2034,SC2164
+# Maintainer: Alexandre Bouvier <contact at amb dot tf>
+_pkgname=tmsu
+pkgname="$_pkgname-bin"
+pkgver=0.6.1
+pkgrel=1
+pkgdesc="A tool to tag your files and access them through a virtual filesystem"
+arch=('i686' 'x86_64')
+url="http://tmsu.org/"
+license=('GPL3')
+depends=('fuse' 'sqlite>=3')
+provides=("$_pkgname=$pkgver")
+conflicts=("$_pkgname")
+source_i686=("https://github.com/oniony/TMSU/releases/download/v$pkgver/tmsu-i686-$pkgver.tgz")
+source_x86_64=("https://github.com/oniony/TMSU/releases/download/v$pkgver/tmsu-x86_64-$pkgver.tgz")
+md5sums_i686=('2971c02845c8dca688c062fd6ecaa316')
+md5sums_x86_64=('62225f0f2871d42c7b4f38a39b12d267')
+
+package() {
+	cd "tmsu-$CARCH-$pkgver"
+	for bin in tmsu mount.tmsu tmsu-fs-merge tmsu-fs-mv tmsu-fs-rm ; do
+		install -Dm755 -t "$pkgdir/usr/bin" "bin/$bin"
+	done
+	install -Dm644 -t "$pkgdir/usr/share/man/man1" man/tmsu.1.gz
+	install -Dm644 -t "$pkgdir/usr/share/zsh/site-functions" misc/zsh/_tmsu
+}
