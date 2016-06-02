@@ -1,3 +1,5 @@
+#!/bin/bash
+# shellcheck disable=SC2034,SC2164
 # Maintainer: Alexandre Bouvier <abouvier at student dot 42 dot fr>
 pkgname=libmlx
 pkgver=20140106

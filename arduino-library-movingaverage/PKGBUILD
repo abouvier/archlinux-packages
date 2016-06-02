@@ -1,3 +1,5 @@
+#!/bin/bash
+# shellcheck disable=SC2034
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=MovingAverage
 pkgname="arduino-library-${_pkgname,,}"
