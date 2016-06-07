@@ -2,10 +2,10 @@
 # shellcheck disable=SC2034,SC2164
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=arduino
-pkgname="$_pkgname-headless"
+pkgname="$_pkgname-nox"
 pkgver=1.6.9
-pkgrel=2
-pkgdesc="Arduino headless prototyping platform SDK"
+pkgrel=1
+pkgdesc="Arduino prototyping platform SDK (headless version, without IDE)"
 arch=('any')
 url="https://www.arduino.cc/"
 license=('GPL' 'LGPL')
@@ -26,7 +26,7 @@ prepare() {
 
 package() {
 	cd "${_pkgname^}-$pkgver"
-	install -d "$pkgdir/usr/share/${_pkgname}"
+	install -d "${pkgdir:?}/usr/share/${_pkgname}"
 	cp -a libraries "$pkgdir/usr/share/${_pkgname}"
 	install -d "$pkgdir/usr/share/${_pkgname}/hardware/arduino"
 	cp -a hardware/arduino/avr "$pkgdir/usr/share/${_pkgname}/hardware/arduino"
