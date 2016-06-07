@@ -1,0 +1,29 @@
+#!/bin/bash
+# shellcheck disable=SC2034,SC2164
+# Maintainer: Alexandre Bouvier <contact at amb dot tf>
+_pkgname=CircularBuffer
+pkgname="arduino-library-${_pkgname,,}-git"
+pkgver=0.1.1.r3.ged84b1d
+pkgrel=1
+pkgdesc="Circular buffer library for Arduino"
+arch=('any')
+url="https://github.com/abouvier/$_pkgname"
+license=('Apache')
+depends=('arduino')
+makedepends=('git')
+optdepends=('arduino-library-movingaverage-git')
+provides=("${pkgname%-git}")
+conflicts=("${pkgname%-git}")
+source=("$pkgname::git+https://github.com/abouvier/$_pkgname.git")
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$pkgname"
+	git describe --long --tags | sed 's/^v//;s/-/.r/;s/-/./'
+}
+
+package() {
+	install -d "${pkgdir:?}/usr/share/arduino/libraries"
+	cp -a "$pkgname" "$pkgdir/usr/share/arduino/libraries/$_pkgname"
+	rm -rf "$pkgdir/usr/share/arduino/libraries/$_pkgname/.git"
+}
