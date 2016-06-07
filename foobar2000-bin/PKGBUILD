@@ -41,7 +41,7 @@ prepare() {
 		-o"$_pkgname-$pkgver" "$_pkgname-$pkgver.exe"
 	cd "$_pkgname-$pkgver"
 	find -type d -exec chmod 755 "{}" +
-	wrestool -xRn225 -o "$srcdir/license.html" foobar2000.exe
+	wrestool -xRn225 -o "${srcdir:?}/license.html" foobar2000.exe
 	wrestool -xRn269 -o "$srcdir/$_pkgname.png" foobar2000.exe
 	icotool -xi7 -o "$srcdir/application-x-fb2k-playlist.png" icons/fpl.ico
 	icotool -xi7 -o "$srcdir/application-x-fb2k-component.png" icons/generic.ico
@@ -51,7 +51,7 @@ prepare() {
 }
 
 package() {
-	install -d "$pkgdir/usr/share"
+	install -d "${pkgdir:?}/usr/share"
 	cp -R "$_pkgname-$pkgver" "$pkgdir/usr/share/$_pkgname"
 	install -Dm755 "$_pkgname.sh" "$pkgdir/usr/bin/$_pkgname"
 	install -Dm644 "$_pkgname.xml" "$pkgdir/usr/share/mime/packages/$_pkgname.xml"

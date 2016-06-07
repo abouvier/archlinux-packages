@@ -15,6 +15,6 @@ noextract=("$_pkgname-$pkgver.tar.gz")
 md5sums=('63547c60ad09a663e6d331ad65a4bb0f')
 
 package() {
-	install -d "$pkgdir/usr/share/arduino/libraries/$_pkgname"
+	install -d "${pkgdir:?}/usr/share/arduino/libraries/$_pkgname"
 	tar -xf "$_pkgname-$pkgver.tar.gz" -C "$pkgdir/usr/share/arduino/libraries/$_pkgname" --strip-components=1
 }

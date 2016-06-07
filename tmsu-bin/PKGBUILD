@@ -20,8 +20,8 @@ md5sums_x86_64=('62225f0f2871d42c7b4f38a39b12d267')
 package() {
 	cd "tmsu-$CARCH-$pkgver"
 	for bin in tmsu mount.tmsu tmsu-fs-merge tmsu-fs-mv tmsu-fs-rm ; do
-		install -Dm755 -t "$pkgdir/usr/bin" "bin/$bin"
+		install -Dm755 -t "${pkgdir:?}/usr/bin" "bin/$bin"
 	done
-	install -Dm644 -t "$pkgdir/usr/share/man/man1" man/tmsu.1.gz
 	install -Dm644 -t "$pkgdir/usr/share/zsh/site-functions" misc/zsh/_tmsu
+	install -Dm644 -t "$pkgdir/usr/share/man/man1" man/tmsu.1.gz
 }
