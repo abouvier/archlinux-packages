@@ -4,7 +4,7 @@
 _pkgname=foobar2000
 pkgname="$_pkgname-bin"
 pkgver=1.3.10
-pkgrel=2
+pkgrel=3
 pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
@@ -31,32 +31,24 @@ md5sums=(
 )
 
 prepare() {
-	7z x \
-		-x!'foobar2000 Shell Associations Updater.exe' \
-		-x!'[LICENSE].rtf' \
-		-x!'[NSIS].nsi' \
-		-x!'$PLUGINSDIR' \
-		-x!'$R0' \
-		-x!'uninstall.exe' \
-		-o"$_pkgname-$pkgver" "$_pkgname-$pkgver.exe"
-	cd "$_pkgname-$pkgver"
-	find -type d -exec chmod 755 "{}" +
-	wrestool -xRn225 -o "${srcdir:?}/license.html" foobar2000.exe
-	wrestool -xRn269 -o "$srcdir/$_pkgname.png" foobar2000.exe
-	icotool -xi7 -o "$srcdir/application-x-fb2k-playlist.png" icons/fpl.ico
-	icotool -xi7 -o "$srcdir/application-x-fb2k-component.png" icons/generic.ico
-	icotool -xi7 -o "$srcdir/application-x-fb2k-theme.png" icons/fth.ico
-	touch portable_mode_enabled
-	rm -rf icons
+	7z x -y "$_pkgname-$pkgver.exe"
+	icotool -xi7 icons/*.ico 2>/dev/null
+	wrestool -xRo. foobar2000.exe
 }
 
 package() {
-	install -d "${pkgdir:?}/usr/share"
-	cp -R "$_pkgname-$pkgver" "$pkgdir/usr/share/$_pkgname"
+	# shellcheck disable=SC2154
 	install -Dm755 "$_pkgname.sh" "$pkgdir/usr/bin/$_pkgname"
-	install -Dm644 "$_pkgname.xml" "$pkgdir/usr/share/mime/packages/$_pkgname.xml"
-	install -Dm755 "$_pkgname.desktop" "$pkgdir/usr/share/applications/$_pkgname.desktop"
-	install -Dm644 -t "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes" application-x-fb2k-*.png
-	install -Dm644 -t "$pkgdir/usr/share/icons/hicolor/256x256/apps" "$_pkgname.png"
-	install -Dm644 -t "$pkgdir/usr/share/licenses/$_pkgname" license.html
+	install -Dm755 -t "$pkgdir/usr/share/$_pkgname" foobar2000.exe
+	install -Dm644 -t "$pkgdir/usr/share/$_pkgname" *.{dll,html,css}
+	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/themes" themes/*.fth
+	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/components" components/*.dll
+	install -Dm644 fpl_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-playlist.png"
+	install -Dm644 generic_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-component.png"
+	install -Dm644 fth_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-theme.png"
+	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir/usr/share/icons/hicolor/256x256/apps/$_pkgname.png"
+	install -Dm644 foobar2000.exe_TEXT_225 "$pkgdir/usr/share/licenses/$_pkgname/license.html"
+	install -Dm755 -t "$pkgdir/usr/share/applications" "$_pkgname.desktop"
+	install -Dm644 -t "$pkgdir/usr/share/mime/packages" "$_pkgname.xml"
+	touch "$pkgdir/usr/share/$_pkgname/portable_mode_enabled"
 }

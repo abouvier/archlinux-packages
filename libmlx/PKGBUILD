@@ -3,7 +3,7 @@
 # Maintainer: Alexandre Bouvier <abouvier at student dot 42 dot fr>
 pkgname=libmlx
 pkgver=20140106
-pkgrel=2
+pkgrel=3
 pkgdesc="Simple X11 programming API in C, designed for students"
 arch=('i686' 'x86_64')
 url="http://www.42.fr/"
@@ -33,8 +33,9 @@ build() {
 
 package() {
 	cd minilibx
-	install -Dm644 -t "${pkgdir:?}/usr/lib" libmlx.a
-	install -Dm644 -t "$pkgdir/usr/lib/pkgconfig" "${srcdir:?}/mlx.pc"
+	# shellcheck disable=SC2154
+	install -Dm644 -t "$pkgdir/usr/lib" libmlx.a
+	install -Dm644 -t "$pkgdir/usr/lib/pkgconfig" ../mlx.pc
 	install -Dm644 -t "$pkgdir/usr/share/man/man3" man/man3/*.3
 	install -Dm644 -t "$pkgdir/usr/include" mlx.h
 }

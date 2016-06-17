@@ -4,7 +4,7 @@
 _pkgname=tmsu
 pkgname="$_pkgname-bin"
 pkgver=0.6.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A tool to tag your files and access them through a virtual filesystem"
 arch=('i686' 'x86_64')
 url="http://tmsu.org/"
@@ -19,9 +19,8 @@ md5sums_x86_64=('62225f0f2871d42c7b4f38a39b12d267')
 
 package() {
 	cd "tmsu-$CARCH-$pkgver"
-	for bin in tmsu mount.tmsu tmsu-fs-merge tmsu-fs-mv tmsu-fs-rm ; do
-		install -Dm755 -t "${pkgdir:?}/usr/bin" "bin/$bin"
-	done
+	# shellcheck disable=SC2154
+	install -Dm755 -t "$pkgdir/usr/bin" bin/*
 	install -Dm644 -t "$pkgdir/usr/share/zsh/site-functions" misc/zsh/_tmsu
 	install -Dm644 -t "$pkgdir/usr/share/man/man1" man/tmsu.1.gz
 }
