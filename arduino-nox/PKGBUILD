@@ -4,12 +4,12 @@
 _pkgname=arduino
 pkgname="$_pkgname-nox"
 pkgver=1.6.9
-pkgrel=1
+pkgrel=2
 pkgdesc="Arduino prototyping platform SDK (headless version, without IDE)"
 arch=('any')
 url="https://www.arduino.cc/"
 license=('GPL' 'LGPL')
-depends=('avr-libc' 'avrdude' 'shared-mime-info' 'hicolor-icon-theme')
+depends=('avr-libc' 'avrdude' 'shared-mime-info' 'gtk-update-icon-cache')
 optdepends=('arduino-mk: Makefile for Arduino sketches')
 provides=("$_pkgname=$pkgver")
 conflicts=("$_pkgname" 'teensyduino')
@@ -20,24 +20,20 @@ md5sums=('b1f205208db0065286013e544ecbf48f')
 
 prepare() {
 	cd "${_pkgname^}-$pkgver"
-	sed -i '\#<mime-type type="text/x-arduino">#a<icon name="text-x-arduino"/>' \
-		build/linux/dist/mime.xml
+	ln -s build/shared/examples
 }
 
 package() {
 	cd "${_pkgname^}-$pkgver"
-	install -d "${pkgdir:?}/usr/share/${_pkgname}"
-	cp -a libraries "$pkgdir/usr/share/${_pkgname}"
-	install -d "$pkgdir/usr/share/${_pkgname}/hardware/arduino"
-	cp -a hardware/arduino/avr "$pkgdir/usr/share/${_pkgname}/hardware/arduino"
-	install -Dm644 -t "$pkgdir/usr/share/doc/${_pkgname}" build/shared/revisions.txt
-	cp -a build/shared/examples "$pkgdir/usr/share/doc/${_pkgname}"
-	install -Dm644 build/linux/dist/mime.xml "$pkgdir/usr/share/mime/packages/${_pkgname}.xml"
+	# shellcheck disable=SC2154
+	find libraries -type f -exec install -Dm644 {,"$pkgdir/usr/share/$_pkgname/"}{} \;
+	find hardware/arduino/avr -type f -exec install -Dm644 {,"$pkgdir/usr/share/$_pkgname/"}{} \;
+	install -Dm644 build/linux/dist/mime.xml "$pkgdir/usr/share/mime/packages/$_pkgname.xml"
+	find examples/ -type f -exec install -Dm644 {,"$pkgdir/usr/share/doc/$_pkgname/"}{} \;
+	install -Dm644 -t "$pkgdir/usr/share/doc/$_pkgname" build/shared/revisions.txt
 	for size in 16 24 32 48 64 72 96 128 256 ; do
-		install -Dm644 "build/shared/icons/${size}x$size/apps/arduino.png" \
-			"$pkgdir/usr/share/icons/hicolor/${size}x$size/mimetypes/text-x-arduino.png"
+		install -Dm644 "build/shared/icons/${size}x$size/apps/arduino.png" "$pkgdir/usr/share/icons/hicolor/${size}x$size/mimetypes/text-x-arduino.png"
 	done
-	# needed by arduino-mk
-	install -d "$pkgdir/usr/share/${_pkgname}/lib"
-	echo -n "$pkgver" > "$pkgdir/usr/share/${_pkgname}/lib/version.txt"
+	# used by arduino-mk
+	install -Dm644 <(echo -n "$pkgver") "$pkgdir/usr/share/$_pkgname/lib/version.txt"
 }
