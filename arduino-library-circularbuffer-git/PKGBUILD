@@ -3,8 +3,8 @@
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=CircularBuffer
 pkgname="arduino-library-${_pkgname,,}-git"
-pkgver=0.1.1.r3.ged84b1d
-pkgrel=3
+pkgver=0.1.1.r6.gdbe0eae
+pkgrel=1
 pkgdesc="Circular buffer library for Arduino"
 arch=('any')
 url="https://github.com/abouvier/$_pkgname"
@@ -26,5 +26,5 @@ package() {
 	cd "$pkgname"
 	# shellcheck disable=SC2154
 	install -Dm644 -t "$pkgdir/usr/share/arduino/libraries/$_pkgname/src" src/*
-	install -Dm644 -t "$pkgdir/usr/share/arduino/libraries/$_pkgname" *.*
+	install -Dm644 -t "$pkgdir/usr/share/arduino/libraries/$_pkgname" -- *.*
 }

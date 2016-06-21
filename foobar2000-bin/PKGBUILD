@@ -4,7 +4,7 @@
 _pkgname=foobar2000
 pkgname="$_pkgname-bin"
 pkgver=1.3.10
-pkgrel=3
+pkgrel=4
 pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
@@ -40,7 +40,7 @@ package() {
 	# shellcheck disable=SC2154
 	install -Dm755 "$_pkgname.sh" "$pkgdir/usr/bin/$_pkgname"
 	install -Dm755 -t "$pkgdir/usr/share/$_pkgname" foobar2000.exe
-	install -Dm644 -t "$pkgdir/usr/share/$_pkgname" *.{dll,html,css}
+	install -Dm644 -t "$pkgdir/usr/share/$_pkgname" ./*.{dll,html,css}
 	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/themes" themes/*.fth
 	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/components" components/*.dll
 	install -Dm644 fpl_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-playlist.png"
