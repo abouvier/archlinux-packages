@@ -10,7 +10,7 @@ arch=('any')
 url="https://www.foobar2000.org/"
 license=('custom')
 depends=('wine' 'unionfs-fuse' 'shared-mime-info' 'gtk-update-icon-cache' 'desktop-file-utils')
-makedepends=('p7zip' 'icoutils')
+makedepends=('wget' 'p7zip' 'icoutils')
 optdepends=(
 	"$_pkgname-playcount-bin: playback statistics support"
 	"$_pkgname-texttools-bin: custom copy to clipboard support"
@@ -18,7 +18,7 @@ optdepends=(
 provides=("$_pkgname=$pkgver")
 conflicts=("$_pkgname")
 source=(
-	"$_pkgname-$pkgver.exe::https://www.dropbox.com/s/6bwn5b056ibzfeg/foobar2000_v$pkgver.exe"
+	"foobar2000_v$pkgver.exe::https://www.foobar2000.org/download"
 	"$_pkgname.desktop"
 	"$_pkgname.xml"
 	"$_pkgname.sh"
@@ -30,8 +30,11 @@ md5sums=(
 	'SKIP'
 )
 
+# bypass dynamic download link
+DLAGENTS=('https::/usr/bin/wget -nH --cut-dirs=3 -r -l 2 -A exe %u')
+
 prepare() {
-	7z x -y "$_pkgname-$pkgver.exe"
+	7z x -y "foobar2000_v$pkgver.exe"
 	icotool -xi7 icons/*.ico 2>/dev/null
 	wrestool -xRo. foobar2000.exe
 }
