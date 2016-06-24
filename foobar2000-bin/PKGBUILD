@@ -4,7 +4,7 @@
 _pkgname=foobar2000
 pkgname="$_pkgname-bin"
 pkgver=1.3.10
-pkgrel=4
+pkgrel=5
 pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
@@ -35,7 +35,7 @@ DLAGENTS=('https::/usr/bin/wget -nH --cut-dirs=3 -r -l 2 -A exe %u')
 
 prepare() {
 	7z x -y "foobar2000_v$pkgver.exe"
-	icotool -xi7 icons/*.ico 2>/dev/null
+	icotool -x icons/*.ico 2>/dev/null
 	wrestool -xRo. foobar2000.exe
 }
 
@@ -46,9 +46,12 @@ package() {
 	install -Dm644 -t "$pkgdir/usr/share/$_pkgname" ./*.{dll,html,css}
 	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/themes" themes/*.fth
 	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/components" components/*.dll
-	install -Dm644 fpl_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-playlist.png"
-	install -Dm644 generic_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-component.png"
-	install -Dm644 fth_7_256x256x32.png "$pkgdir/usr/share/icons/hicolor/256x256/mimetypes/application-x-fb2k-theme.png"
+	for type in fpl=playlist fth=theme generic=component ; do
+		for size in 16 32 48 256 ; do
+			install -Dm644 "${type%=*}_"*"_${size}x${size}x32.png" \
+				"$pkgdir/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-fb2k-${type#*=}.png"
+		done
+	done
 	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir/usr/share/icons/hicolor/256x256/apps/$_pkgname.png"
 	install -Dm644 foobar2000.exe_TEXT_225 "$pkgdir/usr/share/licenses/$_pkgname/license.html"
 	install -Dm755 -t "$pkgdir/usr/share/applications" "$_pkgname.desktop"
