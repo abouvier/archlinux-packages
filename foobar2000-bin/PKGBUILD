@@ -9,7 +9,13 @@ pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
 license=('custom')
-depends=('wine' 'unionfs-fuse' 'shared-mime-info' 'gtk-update-icon-cache' 'desktop-file-utils')
+depends=(
+	'wine'
+	'unionfs-fuse'
+	'shared-mime-info'
+	'gtk-update-icon-cache'
+	'desktop-file-utils'
+)
 makedepends=('wget' 'p7zip' 'icoutils')
 optdepends=(
 	"$_pkgname-playcount-bin: playback statistics support"
@@ -49,7 +55,7 @@ package() {
 	for type in fpl=playlist fth=theme generic=component ; do
 		for size in 16 32 48 256 ; do
 			install -Dm644 "${type%=*}_"*"_${size}x${size}x32.png" \
-				"$pkgdir/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-fb2k-${type#*=}.png"
+				"$pkgdir/usr/share/icons/hicolor/${size}x$size/mimetypes/application-x-fb2k-${type#*=}.png"
 		done
 	done
 	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir/usr/share/icons/hicolor/256x256/apps/$_pkgname.png"
