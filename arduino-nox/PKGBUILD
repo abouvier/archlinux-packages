@@ -3,8 +3,8 @@
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=arduino
 pkgname="$_pkgname-nox"
-pkgver=1.6.9
-pkgrel=2
+pkgver=1.6.10
+pkgrel=1
 pkgdesc="Arduino prototyping platform SDK (headless version, without IDE)"
 arch=('any')
 url="https://www.arduino.cc/"
@@ -16,7 +16,7 @@ conflicts=("$_pkgname" 'teensyduino')
 options=(!strip)
 install="$_pkgname.install"
 source=("https://github.com/arduino/Arduino/archive/$pkgver.tar.gz")
-md5sums=('b1f205208db0065286013e544ecbf48f')
+md5sums=('570846aed89f2f87f442c0851ee7e823')
 
 prepare() {
 	cd "Arduino-$pkgver"
