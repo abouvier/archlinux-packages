@@ -3,8 +3,8 @@
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=foobar2000
 pkgname="$_pkgname-bin"
-pkgver=1.3.11
-pkgrel=1
+pkgver=1.3.14
+pkgrel=2
 pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
@@ -18,6 +18,7 @@ depends=(
 )
 makedepends=('wget' 'p7zip' 'icoutils')
 optdepends=(
+	"$_pkgname-encoders-bin: encoders for the converter component"
 	"$_pkgname-playcount-bin: playback statistics support"
 	"$_pkgname-texttools-bin: custom copy to clipboard support"
 )
@@ -30,7 +31,7 @@ source=(
 	"$_pkgname.sh"
 )
 md5sums=(
-	'f6f06d77b86631548ee3c10610bb7cbd'
+	'63454f7a0e69dab9b3fe2dfc9a2c6fc6'
 	'SKIP'
 	'SKIP'
 	'SKIP'
