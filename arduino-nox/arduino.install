@@ -1,4 +1,0 @@
-post_install() {
-	echo 'Add yourself to the uucp group for serial communication with the arduino board:'
-	echo '# gpasswd -a $USER uucp'
-}
