@@ -4,3 +4,6 @@
 [submodule "foobar2000-texttools-bin"]
 	path = foobar2000-texttools-bin
 	url = https://aur.archlinux.org/foobar2000-texttools-bin.git
+[submodule "vlc-sd-freebox"]
+	path = vlc-sd-freebox
+	url = https://aur.archlinux.org/vlc-sd-freebox.git
