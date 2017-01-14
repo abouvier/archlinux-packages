@@ -18,9 +18,9 @@ depends=(
 )
 makedepends=('wget' 'p7zip' 'icoutils')
 optdepends=(
+	"$_pkgname-component-playcount-bin: playback statistics support"
+	"$_pkgname-component-texttools-bin: custom copy to clipboard support"
 	"$_pkgname-encoders-bin: encoders for the converter component"
-	"$_pkgname-playcount-bin: playback statistics support"
-	"$_pkgname-texttools-bin: custom copy to clipboard support"
 )
 provides=("$_pkgname=$pkgver")
 conflicts=("$_pkgname")
