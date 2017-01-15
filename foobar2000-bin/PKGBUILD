@@ -38,7 +38,7 @@ md5sums=(
 )
 
 # bypass dynamic download link
-DLAGENTS=('https::/usr/bin/wget -nH --cut-dirs=3 -r -l 2 -A exe %u')
+DLAGENTS=('https::/usr/bin/wget -rl2 -nH --cut-dirs=3 -A exe')
 
 prepare() {
 	7z x -y "foobar2000_v$pkgver.exe"
