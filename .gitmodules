@@ -7,3 +7,6 @@
 [submodule "vlc-sd-freebox"]
 	path = vlc-sd-freebox
 	url = https://aur.archlinux.org/vlc-sd-freebox.git
+[submodule "python-axolotl-curve25519"]
+	path = python-axolotl-curve25519
+	url = https://aur.archlinux.org/python-axolotl-curve25519.git
