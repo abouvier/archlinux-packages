@@ -13,3 +13,6 @@
 [submodule "python-axolotl"]
 	path = python-axolotl
 	url = https://aur.archlinux.org/python-axolotl.git
+[submodule "php-libsodium"]
+	path = php-libsodium
+	url = https://aur.archlinux.org/php-libsodium.git
