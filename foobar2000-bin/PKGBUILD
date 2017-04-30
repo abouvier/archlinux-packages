@@ -3,7 +3,7 @@
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=foobar2000
 pkgname="$_pkgname-bin"
-pkgver=1.3.14
+pkgver=1.3.15
 pkgrel=2
 pkgdesc="Advanced freeware audio player for the Windows platform"
 arch=('any')
@@ -31,7 +31,7 @@ source=(
 	"$_pkgname.sh"
 )
 md5sums=(
-	'63454f7a0e69dab9b3fe2dfc9a2c6fc6'
+	'584fbea16e57798309aadffe73893f9a'
 	'SKIP'
 	'SKIP'
 	'SKIP'
