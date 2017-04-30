@@ -3,7 +3,7 @@
 # Maintainer: Alexandre Bouvier <contact at amb dot tf>
 _pkgname=mpv
 pkgname=$_pkgname-scripts
-pkgver=0.23.0
+pkgver=0.25.0
 pkgrel=1
 pkgdesc="A small selection of internally maintained scripts"
 arch=('any')
@@ -11,7 +11,7 @@ url="https://mpv.io/"
 license=('GPL')
 depends=("$_pkgname")
 source=("$_pkgname-$pkgver.tar.gz::https://github.com/mpv-player/$_pkgname/archive/v$pkgver.tar.gz")
-md5sums=('9bce377e101612d611daf2a5c99aa95f')
+md5sums=('73b3d233c3b4428d0cfd5491c5cb6c41')
 
 package() {
 	cd "$_pkgname-$pkgver"
