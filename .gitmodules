@@ -16,3 +16,6 @@
 [submodule "php-libsodium"]
 	path = php-libsodium
 	url = https://aur.archlinux.org/php-libsodium.git
+[submodule "jcdk-classic"]
+	path = jcdk-classic
+	url = https://aur.archlinux.org/jcdk-classic.git
