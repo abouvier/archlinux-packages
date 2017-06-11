@@ -9,7 +9,7 @@ Exec=foobar2000 %F
 Icon=foobar2000
 Terminal=false
 Actions=Add;Stop;Pause;Play;Previous;Next;Random;Show;Hide;Exit;
-MimeType=audio/8svx;audio/x-8svx;audio/aac;audio/x-aac;audio/x-aiff;audio/x-aifc;audio/x-ms-asx;audio/basic;application/x-cda;application/x-cue;audio/flac;audio/x-flac;audio/x-flac+ogg;application/x-fb2k-playlist;audio/x-mpegurl;audio/mp4;audio/x-matroska;audio/x-musepack;audio/mp2;audio/mpeg;audio/x-scpls;audio/ogg;audio/vorbis;audio/x-vorbis;audio/speex;audio/x-speex;audio/x-speex+ogg;audio/x-vorbis+ogg;application/ogg;audio/x-opus+ogg;audio/opus;audio/wav;audio/wave;audio/x-wav;audio/vnd.wave;audio/x-wavpack;audio/x-ms-wma;x-content/audio-player;x-content/audio-cdda;inode/directory;audio/webm;
+MimeType=audio/8svx;audio/x-8svx;audio/aac;audio/x-aac;audio/x-aiff;audio/x-aifc;audio/x-ms-asx;audio/basic;application/x-cda;application/x-cue;audio/flac;audio/x-flac;audio/x-flac+ogg;application/x-fb2k-playlist;audio/x-mpegurl;audio/mp4;audio/x-matroska;audio/x-musepack;audio/mp2;audio/mpeg;audio/x-scpls;audio/ogg;audio/vorbis;audio/x-vorbis;audio/speex;audio/x-speex;audio/x-speex+ogg;audio/x-vorbis+ogg;application/ogg;audio/x-opus+ogg;audio/opus;audio/wav;audio/wave;audio/x-wav;audio/vnd.wave;audio/x-wavpack;audio/x-ms-wma;x-content/audio-player;x-content/audio-cdda;inode/directory;audio/webm;audio/x-ape;
 
 [Desktop Action Add]
 Name=Append to playlist
