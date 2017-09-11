@@ -19,3 +19,6 @@
 [submodule "jcdk-classic"]
 	path = jcdk-classic
 	url = https://aur.archlinux.org/jcdk-classic.git
+[submodule "arc-kde-git"]
+	path = arc-kde-git
+	url = https://aur.archlinux.org/arc-kde-git.git
