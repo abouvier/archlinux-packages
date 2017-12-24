@@ -7,15 +7,6 @@
 [submodule "vlc-sd-freebox"]
 	path = vlc-sd-freebox
 	url = https://aur.archlinux.org/vlc-sd-freebox.git
-[submodule "python-axolotl-curve25519"]
-	path = python-axolotl-curve25519
-	url = https://aur.archlinux.org/python-axolotl-curve25519.git
-[submodule "python-axolotl"]
-	path = python-axolotl
-	url = https://aur.archlinux.org/python-axolotl.git
-[submodule "php-libsodium"]
-	path = php-libsodium
-	url = https://aur.archlinux.org/php-libsodium.git
 [submodule "jcdk-classic"]
 	path = jcdk-classic
 	url = https://aur.archlinux.org/jcdk-classic.git
