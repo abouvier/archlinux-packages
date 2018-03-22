@@ -13,3 +13,6 @@
 [submodule "arc-kde-git"]
 	path = arc-kde-git
 	url = https://aur.archlinux.org/arc-kde-git.git
+[submodule "libringqt-git"]
+	path = libringqt-git
+	url = https://aur.archlinux.org/libringqt-git.git
