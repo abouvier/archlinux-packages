@@ -16,3 +16,6 @@
 [submodule "libringqt-git"]
 	path = libringqt-git
 	url = https://aur.archlinux.org/libringqt-git.git
+[submodule "ring-kde-git"]
+	path = ring-kde-git
+	url = https://aur.archlinux.org/ring-kde-git.git
