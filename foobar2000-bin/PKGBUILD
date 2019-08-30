@@ -1,65 +1,56 @@
-#!/bin/bash
-# shellcheck disable=SC2034,SC2164
-# Maintainer: Alexandre Bouvier <contact AT amb DOT tf>
+# Maintainer: Alexandre Bouvier <contact@amb.tf>
+# shellcheck shell=bash disable=SC2034,SC2164
 _pkgname=foobar2000
-pkgname="$_pkgname-bin"
-pkgver=1.3.15
-pkgrel=2
-pkgdesc="Advanced freeware audio player for the Windows platform"
+pkgname=$_pkgname-bin
+pkgver=1.4.6
+pkgrel=1
+pkgdesc="An advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
 license=('custom')
-depends=(
-	'wine'
-	'unionfs-fuse'
-	'shared-mime-info'
-	'gtk-update-icon-cache'
-	'desktop-file-utils'
-)
+depends=('wine' 'unionfs-fuse' 'gtk-update-icon-cache')
 makedepends=('wget' 'p7zip' 'icoutils')
-optdepends=(
-	"$_pkgname-component-playcount-bin: playback statistics support"
-	"$_pkgname-component-texttools-bin: custom copy to clipboard support"
-	"$_pkgname-encoders-bin: encoders for the converter component"
-)
+optdepends=("$_pkgname-component-playcount-bin: playback statistics support"
+            "$_pkgname-component-texttools-bin: custom copy to clipboard support"
+            "$_pkgname-encoders-bin: encoders for the converter component")
 provides=("$_pkgname=$pkgver")
 conflicts=("$_pkgname")
-source=(
-	"foobar2000_v$pkgver.exe::https://www.foobar2000.org/download"
-	"$_pkgname.desktop"
-	"$_pkgname.xml"
-	"$_pkgname.sh"
-)
-md5sums=('584fbea16e57798309aadffe73893f9a'
-         '51d3320d6d761f0b7904842a4dde99d3'
-         '0f32b49c8701f3d364e8157085c3d964'
-         '4db2da140bdfe5570fe6cddbd4564e9e')
+source=("foobar2000_v$pkgver.exe::https://www.foobar2000.org/download"
+        "$_pkgname.desktop"
+        "$_pkgname.sh"
+        "$_pkgname.xml")
+md5sums=('eda46c34ef0fe767ceecf2e27f12e668'
+         'a8e231298ce1a41fc7d09ee8497dbaf5'
+         '4db2da140bdfe5570fe6cddbd4564e9e'
+         '0f32b49c8701f3d364e8157085c3d964')
 
 # bypass dynamic download link
 DLAGENTS=('https::/usr/bin/wget -rl2 -nH --cut-dirs=3 -A exe')
 
 prepare() {
-	7z x -y "foobar2000_v$pkgver.exe"
+	7z x -y foobar2000_v$pkgver.exe
 	icotool -x icons/*.ico 2>/dev/null
 	wrestool -xRo. foobar2000.exe
 }
 
 package() {
 	# shellcheck disable=SC2154
-	install -Dm755 "$_pkgname.sh" "$pkgdir/usr/bin/$_pkgname"
-	install -Dm755 -t "$pkgdir/usr/share/$_pkgname" foobar2000.exe
-	install -Dm644 -t "$pkgdir/usr/share/$_pkgname" ./*.{dll,html,css}
-	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/themes" themes/*.fth
-	install -Dm644 -t "$pkgdir/usr/share/$_pkgname/components" components/*.dll
-	for type in fpl=playlist fth=theme generic=component ; do
+	install -Dm755 $_pkgname.sh "$pkgdir"/usr/bin/$_pkgname
+	install -Dm755 -t "$pkgdir"/usr/share/$_pkgname foobar2000.exe
+	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname -- *.dll
+	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/doc doc/*.{html,css}
+	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/themes themes/*.fth
+	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/components components/*.dll
+	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/runtime runtime/*.{dll,manifest}
+	for type in fpl=playlist fth=theme dll=component ; do
 		for size in 16 32 48 256 ; do
-			install -Dm644 "${type%=*}_"*"_${size}x${size}x32.png" \
-				"$pkgdir/usr/share/icons/hicolor/${size}x$size/mimetypes/application-x-fb2k-${type#*=}.png"
+			install -Dm644 ${type%=*}_*_${size}x${size}x*.png \
+				"$pkgdir"/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-fb2k-${type#*=}.png
 		done
 	done
-	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir/usr/share/icons/hicolor/256x256/apps/$_pkgname.png"
-	install -Dm644 foobar2000.exe_TEXT_225 "$pkgdir/usr/share/licenses/$_pkgname/license.html"
-	install -Dm755 -t "$pkgdir/usr/share/applications" "$_pkgname.desktop"
-	install -Dm644 -t "$pkgdir/usr/share/mime/packages" "$_pkgname.xml"
-	touch "$pkgdir/usr/share/$_pkgname/portable_mode_enabled"
+	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir"/usr/share/icons/hicolor/256x256/apps/$_pkgname.png
+	install -Dm644 -t "$pkgdir"/usr/share/licenses/$_pkgname doc/license.html
+	install -Dm755 -t "$pkgdir"/usr/share/applications $_pkgname.desktop
+	install -Dm644 -t "$pkgdir"/usr/share/mime/packages $_pkgname.xml
+	touch "$pkgdir"/usr/share/$_pkgname/portable_mode_enabled
 }
