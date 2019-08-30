@@ -22,3 +22,9 @@
 [submodule "plymouth-kcm"]
 	path = plymouth-kcm
 	url = https://aur.archlinux.org/plymouth-kcm.git
+[submodule "dhewm3-git"]
+	path = dhewm3-git
+	url = https://aur.archlinux.org/dhewm3-git.git
+[submodule "mn88472-firmware"]
+	path = mn88472-firmware
+	url = https://aur.archlinux.org/mn88472-firmware.git
