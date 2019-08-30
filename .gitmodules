@@ -19,9 +19,6 @@
 [submodule "ring-kde-git"]
 	path = ring-kde-git
 	url = https://aur.archlinux.org/ring-kde-git.git
-[submodule "plymouth-kcm"]
-	path = plymouth-kcm
-	url = https://aur.archlinux.org/plymouth-kcm.git
 [submodule "dhewm3-git"]
 	path = dhewm3-git
 	url = https://aur.archlinux.org/dhewm3-git.git
