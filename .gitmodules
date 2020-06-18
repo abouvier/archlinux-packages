@@ -25,3 +25,15 @@
 [submodule "mn88472-firmware"]
 	path = mn88472-firmware
 	url = https://aur.archlinux.org/mn88472-firmware.git
+[submodule "libretro-beetle-saturn-git"]
+	path = libretro-beetle-saturn-git
+	url = https://aur.archlinux.org/libretro-beetle-saturn-git.git
+[submodule "libretro-mupen64plus-nx-git"]
+	path = libretro-mupen64plus-nx-git
+	url = https://aur.archlinux.org/libretro-mupen64plus-nx-git.git
+[submodule "libretro-flycast-git"]
+	path = libretro-flycast-git
+	url = https://aur.archlinux.org/libretro-flycast-git.git
+[submodule "noto-fonts-emoji-git"]
+	path = noto-fonts-emoji-git
+	url = https://aur.archlinux.org/noto-fonts-emoji-git.git
