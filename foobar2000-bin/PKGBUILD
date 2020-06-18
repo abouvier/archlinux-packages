@@ -2,7 +2,7 @@
 # shellcheck shell=bash disable=SC2034,SC2164
 _pkgname=foobar2000
 pkgname=$_pkgname-bin
-pkgver=1.4.6
+pkgver=1.5.4
 pkgrel=1
 pkgdesc="An advanced freeware audio player for the Windows platform"
 arch=('any')
@@ -19,8 +19,8 @@ source=("foobar2000_v$pkgver.exe::https://www.foobar2000.org/download"
         "$_pkgname.desktop"
         "$_pkgname.sh"
         "$_pkgname.xml")
-md5sums=('eda46c34ef0fe767ceecf2e27f12e668'
-         'a8e231298ce1a41fc7d09ee8497dbaf5'
+md5sums=('a9b221780981def44e668bb4817071b6'
+         'f4b9f75185d786c91d214b4171144da2'
          '4db2da140bdfe5570fe6cddbd4564e9e'
          '0f32b49c8701f3d364e8157085c3d964')
 
@@ -50,7 +50,7 @@ package() {
 	done
 	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir"/usr/share/icons/hicolor/256x256/apps/$_pkgname.png
 	install -Dm644 -t "$pkgdir"/usr/share/licenses/$_pkgname doc/license.html
-	install -Dm755 -t "$pkgdir"/usr/share/applications $_pkgname.desktop
+	install -Dm644 -t "$pkgdir"/usr/share/applications $_pkgname.desktop
 	install -Dm644 -t "$pkgdir"/usr/share/mime/packages $_pkgname.xml
 	touch "$pkgdir"/usr/share/$_pkgname/portable_mode_enabled
 }
