@@ -28,12 +28,30 @@
 [submodule "libretro-beetle-saturn-git"]
 	path = libretro-beetle-saturn-git
 	url = https://aur.archlinux.org/libretro-beetle-saturn-git.git
-[submodule "libretro-mupen64plus-nx-git"]
-	path = libretro-mupen64plus-nx-git
-	url = https://aur.archlinux.org/libretro-mupen64plus-nx-git.git
 [submodule "libretro-flycast-git"]
 	path = libretro-flycast-git
 	url = https://aur.archlinux.org/libretro-flycast-git.git
 [submodule "noto-fonts-emoji-git"]
 	path = noto-fonts-emoji-git
 	url = https://aur.archlinux.org/noto-fonts-emoji-git.git
+[submodule "libretro-prboom-git"]
+	path = libretro-prboom-git
+	url = https://aur.archlinux.org/libretro-prboom-git.git
+[submodule "libretro-mupen64plus-next-git"]
+	path = libretro-mupen64plus-next-git
+	url = https://aur.archlinux.org/libretro-mupen64plus-next-git.git
+[submodule "retroarch-joypad-autoconfig-git"]
+	path = retroarch-joypad-autoconfig-git
+	url = https://aur.archlinux.org/retroarch-joypad-autoconfig-git.git
+[submodule "libretro-stella-git"]
+	path = libretro-stella-git
+	url = https://aur.archlinux.org/libretro-stella-git.git
+[submodule "xemu-git"]
+	path = xemu-git
+	url = https://aur.archlinux.org/xemu-git.git
+[submodule "libretro-database-git"]
+	path = libretro-database-git
+	url = https://aur.archlinux.org/libretro-database-git.git
+[submodule "retroarch-assets-git"]
+	path = retroarch-assets-git
+	url = https://aur.archlinux.org/retroarch-assets-git.git
