@@ -13,12 +13,6 @@
 [submodule "arc-kde-git"]
 	path = arc-kde-git
 	url = https://aur.archlinux.org/arc-kde-git.git
-[submodule "libringqt-git"]
-	path = libringqt-git
-	url = https://aur.archlinux.org/libringqt-git.git
-[submodule "ring-kde-git"]
-	path = ring-kde-git
-	url = https://aur.archlinux.org/ring-kde-git.git
 [submodule "dhewm3-git"]
 	path = dhewm3-git
 	url = https://aur.archlinux.org/dhewm3-git.git
@@ -55,3 +49,69 @@
 [submodule "retroarch-assets-git"]
 	path = retroarch-assets-git
 	url = https://aur.archlinux.org/retroarch-assets-git.git
+[submodule "libretro-dosbox-pure-git"]
+	path = libretro-dosbox-pure-git
+	url = https://aur.archlinux.org/libretro-dosbox-pure-git.git
+[submodule "libretro-core-info-git"]
+	path = libretro-core-info-git
+	url = https://aur.archlinux.org/libretro-core-info-git.git
+[submodule "libretro-pcsx2-git"]
+	path = libretro-pcsx2-git
+	url = https://aur.archlinux.org/libretro-pcsx2-git.git
+[submodule "libretro-genesis-plus-gx-wide-git"]
+	path = libretro-genesis-plus-gx-wide-git
+	url = https://aur.archlinux.org/libretro-genesis-plus-gx-wide-git.git
+[submodule "foobar2000-encoders-bin"]
+	path = foobar2000-encoders-bin
+	url = https://aur.archlinux.org/foobar2000-encoders-bin.git
+[submodule "torrent7z"]
+	path = torrent7z
+	url = https://aur.archlinux.org/torrent7z.git
+[submodule "libretro-fbneo-git"]
+	path = libretro-fbneo-git
+	url = https://aur.archlinux.org/libretro-fbneo-git.git
+[submodule "libretro-virtualjaguar-git"]
+	path = libretro-virtualjaguar-git
+	url = https://aur.archlinux.org/libretro-virtualjaguar-git.git
+[submodule "libretro-cap32-git"]
+	path = libretro-cap32-git
+	url = https://aur.archlinux.org/libretro-cap32-git.git
+[submodule "libretro-gambatte-git"]
+	path = libretro-gambatte-git
+	url = https://aur.archlinux.org/libretro-gambatte-git.git
+[submodule "libretro-melonds-git"]
+	path = libretro-melonds-git
+	url = https://aur.archlinux.org/libretro-melonds-git.git
+[submodule "libretro-mesen-git"]
+	path = libretro-mesen-git
+	url = https://aur.archlinux.org/libretro-mesen-git.git
+[submodule "xbyak-git"]
+	path = xbyak-git
+	url = https://aur.archlinux.org/xbyak-git.git
+[submodule "yuzu"]
+	path = yuzu
+	url = https://aur.archlinux.org/yuzu.git
+[submodule "discord-rpc-git"]
+	path = discord-rpc-git
+	url = https://aur.archlinux.org/discord-rpc-git.git
+[submodule "sirit-git"]
+	path = sirit-git
+	url = https://aur.archlinux.org/sirit-git.git
+[submodule "dynarmic-git"]
+	path = dynarmic-git
+	url = https://aur.archlinux.org/dynarmic-git.git
+[submodule "zydis-git"]
+	path = zydis-git
+	url = https://aur.archlinux.org/zydis-git.git
+[submodule "librw-git"]
+	path = librw-git
+	url = https://aur.archlinux.org/librw-git.git
+[submodule "dracula-alacritty-git"]
+	path = dracula-alacritty-git
+	url = https://aur.archlinux.org/dracula-alacritty-git.git
+[submodule "dracula-xresources-git"]
+	path = dracula-xresources-git
+	url = https://aur.archlinux.org/dracula-xresources-git.git
+[submodule "libretro-chailove-git"]
+	path = libretro-chailove-git
+	url = https://aur.archlinux.org/libretro-chailove-git.git
