@@ -1,35 +1,40 @@
 # Maintainer: Alexandre Bouvier <contact@amb.tf>
-# shellcheck shell=bash disable=SC2034,SC2164
 _pkgname=foobar2000
 pkgname=$_pkgname-bin
-pkgver=1.5.4
+pkgver=1.6.7
 pkgrel=1
 pkgdesc="An advanced freeware audio player for the Windows platform"
 arch=('any')
 url="https://www.foobar2000.org/"
 license=('custom')
-depends=('wine' 'unionfs-fuse' 'gtk-update-icon-cache')
-makedepends=('wget' 'p7zip' 'icoutils')
-optdepends=("$_pkgname-component-playcount-bin: playback statistics support"
-            "$_pkgname-component-texttools-bin: custom copy to clipboard support"
-            "$_pkgname-encoders-bin: encoders for the converter component")
+depends=('unionfs-fuse' 'wine')
+makedepends=('icoutils' 'p7zip' 'wget')
+optdepends=(
+	"$_pkgname-component-playcount: playback statistics support"
+	"$_pkgname-component-texttools: custom copy to clipboard support"
+	"$_pkgname-encoders: encoders for the converter component"
+)
 provides=("$_pkgname=$pkgver")
 conflicts=("$_pkgname")
-source=("foobar2000_v$pkgver.exe::https://www.foobar2000.org/download"
-        "$_pkgname.desktop"
-        "$_pkgname.sh"
-        "$_pkgname.xml")
-md5sums=('a9b221780981def44e668bb4817071b6'
-         'f4b9f75185d786c91d214b4171144da2'
-         '4db2da140bdfe5570fe6cddbd4564e9e'
-         '0f32b49c8701f3d364e8157085c3d964')
+source=(
+	"foobar2000_v$pkgver.exe::$url/download"
+	"$_pkgname.desktop"
+	"$_pkgname.sh"
+	"$_pkgname.xml"
+)
+b2sums=(
+	'10b1274276a2bd764974e69bacce6c5ceae798d3c2733b161fda3bebd679dd3b6a48cbd983a3f999947850f473cc2f27130d75ed4440aefe2f14c57dcb90b9ff'
+	'439161d4ffbc16d40b0f65b277166f4c72d07652572858cb9e816819fd3bed90063b5849f253270383dd749de26b4e51fd225521ef4f09e4eb41574643e26908'
+	'0e48bc06bfe8d32dba833e48afc69d2126ce2725e1be7a1988f7f14cb204e123745389e748626cc214e3fe9817e21a0b17213660689ab8a5d66df0e9b7ea2d4f'
+	'd7b423930a3c30b837c9450b893b8f112b8051e957c282d8e9b078329a0e8b37c93f78ea136aebace14a1f0851d56f47f790610814db2e6ccdea7980346a9957'
+)
 
 # bypass dynamic download link
 DLAGENTS=('https::/usr/bin/wget -rl2 -nH --cut-dirs=3 -A exe')
 
 prepare() {
 	7z x -y foobar2000_v$pkgver.exe
-	icotool -x icons/*.ico 2>/dev/null
+	icotool -x icons/*.ico 2> /dev/null
 	wrestool -xRo. foobar2000.exe
 }
 
@@ -42,14 +47,14 @@ package() {
 	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/themes themes/*.fth
 	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/components components/*.dll
 	install -Dm644 -t "$pkgdir"/usr/share/$_pkgname/runtime runtime/*.{dll,manifest}
-	for type in fpl=playlist fth=theme dll=component ; do
-		for size in 16 32 48 256 ; do
+	for type in fpl=playlist fth=theme dll=component; do
+		for size in 16 32 48 256; do
 			install -Dm644 ${type%=*}_*_${size}x${size}x*.png \
 				"$pkgdir"/usr/share/icons/hicolor/${size}x${size}/mimetypes/application-x-fb2k-${type#*=}.png
 		done
 	done
 	install -Dm644 foobar2000.exe_PNG_269 "$pkgdir"/usr/share/icons/hicolor/256x256/apps/$_pkgname.png
-	install -Dm644 -t "$pkgdir"/usr/share/licenses/$_pkgname doc/license.html
+	install -Dm644 -t "$pkgdir"/usr/share/licenses/$pkgname doc/license.html
 	install -Dm644 -t "$pkgdir"/usr/share/applications $_pkgname.desktop
 	install -Dm644 -t "$pkgdir"/usr/share/mime/packages $_pkgname.xml
 	touch "$pkgdir"/usr/share/$_pkgname/portable_mode_enabled
