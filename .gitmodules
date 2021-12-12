@@ -115,3 +115,15 @@
 [submodule "libretro-chailove-git"]
 	path = libretro-chailove-git
 	url = https://aur.archlinux.org/libretro-chailove-git.git
+[submodule "libchdr-git"]
+	path = libchdr-git
+	url = https://aur.archlinux.org/libchdr-git.git
+[submodule "libretro-ppsspp-git"]
+	path = libretro-ppsspp-git
+	url = https://aur.archlinux.org/libretro-ppsspp-git.git
+[submodule "zycore-c-git"]
+	path = zycore-c-git
+	url = https://aur.archlinux.org/zycore-c-git.git
+[submodule "libretro-neocd-git"]
+	path = libretro-neocd-git
+	url = https://aur.archlinux.org/libretro-neocd-git.git
