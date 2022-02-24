@@ -127,3 +127,21 @@
 [submodule "libretro-neocd-git"]
 	path = libretro-neocd-git
 	url = https://aur.archlinux.org/libretro-neocd-git.git
+[submodule "libowfat-cvs"]
+	path = libowfat-cvs
+	url = https://aur.archlinux.org/libowfat-cvs.git
+[submodule "freetuxtv-git"]
+	path = freetuxtv-git
+	url = https://aur.archlinux.org/freetuxtv-git.git
+[submodule "libretro-jumpnbump-git"]
+	path = libretro-jumpnbump-git
+	url = https://aur.archlinux.org/libretro-jumpnbump-git.git
+[submodule "libretro-same-cdi-git"]
+	path = libretro-same-cdi-git
+	url = https://aur.archlinux.org/libretro-same-cdi-git.git
+[submodule "libretro-beetle-lynx-git"]
+	path = libretro-beetle-lynx-git
+	url = https://aur.archlinux.org/libretro-beetle-lynx-git.git
+[submodule "asmjit-git"]
+	path = asmjit-git
+	url = https://aur.archlinux.org/asmjit-git.git
