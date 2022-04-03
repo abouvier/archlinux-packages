@@ -94,9 +94,6 @@
 [submodule "discord-rpc-git"]
 	path = discord-rpc-git
 	url = https://aur.archlinux.org/discord-rpc-git.git
-[submodule "sirit-git"]
-	path = sirit-git
-	url = https://aur.archlinux.org/sirit-git.git
 [submodule "dynarmic-git"]
 	path = dynarmic-git
 	url = https://aur.archlinux.org/dynarmic-git.git
