@@ -4,9 +4,6 @@
 [submodule "foobar2000-component-texttools-bin"]
 	path = foobar2000-component-texttools-bin
 	url = https://aur.archlinux.org/foobar2000-component-texttools-bin.git
-[submodule "vlc-sd-freebox"]
-	path = vlc-sd-freebox
-	url = https://aur.archlinux.org/vlc-sd-freebox.git
 [submodule "jcdk-classic"]
 	path = jcdk-classic
 	url = https://aur.archlinux.org/jcdk-classic.git
