@@ -1,0 +1,65 @@
+# Maintainer: Alexandre Bouvier <contact@amb.tf>
+_pkgname=libretro-citra
+pkgname=$_pkgname-git
+pkgver=r9290.44e01f990
+pkgrel=1
+pkgdesc="Nintendo 3DS core"
+arch=('x86_64')
+url="https://github.com/libretro/citra"
+license=('GPL2')
+groups=('libretro')
+depends=('boost-libs' 'crypto++' 'enet' 'ffmpeg' 'libretro-core-info')
+makedepends=('boost' 'git')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+source=(
+	"$_pkgname::git+$url.git"
+	'citra-dynarmic::git+https://github.com/citra-emu/dynarmic.git'
+	'citra-soundtouch::git+https://github.com/citra-emu/ext-soundtouch.git'
+	'libretro-nihstro::git+https://github.com/libretro-fork/nihstro.git'
+	'fmt::git+https://github.com/fmtlib/fmt.git'
+	'lodepng::git+https://github.com/lvandeve/lodepng.git'
+	'teakra::git+https://github.com/wwylele/teakra.git'
+	'xbyak::git+https://github.com/herumi/xbyak.git'
+	'unbundle-libs.patch'
+)
+b2sums=(
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'99b12f934d45ed54f27bd667072b6b0b18cd572100a0acfe1eeb4452e3f4a6aef2f63c9246221511ed26759f2aeef3aad9831114dd9ce6a3d8668dbefe02331b'
+)
+
+pkgver() {
+	cd $_pkgname
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+	cd $_pkgname
+	git submodule init externals/{dynarmic,fmt,lodepng/lodepng,nihstro,soundtouch,teakra,xbyak}
+	git config submodule.dynarmic.url ../citra-dynarmic
+	git config submodule.fmt.url ../fmt
+	git config submodule.lodepng.url ../lodepng
+	git config submodule.nihstro.url ../libretro-nihstro
+	git config submodule.soundtouch.url ../citra-soundtouch
+	git config submodule.teakra.url ../teakra
+	git config submodule.xbyak.url ../xbyak
+	git submodule update
+	patch -Np1 < ../unbundle-libs.patch
+	sed -i 's/-O[0123s]//;s/-Ofast//' Makefile
+}
+
+build() {
+	make -C $_pkgname HAVE_FFMPEG_STATIC=0 BUILD_DATE=
+}
+
+package() {
+	# shellcheck disable=SC2154
+	install -Dm644 -t "$pkgdir"/usr/lib/libretro $_pkgname/citra_libretro.so
+}
