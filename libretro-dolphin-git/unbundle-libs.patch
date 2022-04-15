@@ -1,0 +1,30 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1abb7d7cbf..56db5588e6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -602,6 +602,7 @@ else()
+   add_subdirectory(Externals/enet)
+ endif()
+ 
++check_lib(XXHASH libxxhash xxhash xxhash.h)
+ if(NOT XXHASH_FOUND)
+   message(STATUS "Using static xxhash from Externals")
+   add_subdirectory(Externals/xxhash)
+@@ -673,7 +674,7 @@ else()
+   set(LZO lzo2)
+ endif()
+ 
+-if(NOT APPLE AND NOT MSVC AND NOT LIBRETRO)
++if(NOT APPLE AND NOT MSVC)
+   check_lib(PNG libpng png png.h QUIET)
+ endif()
+ if (PNG_FOUND)
+@@ -770,7 +771,7 @@ else()
+ endif()
+ 
+ find_package(CURL)
+-if(CURL_FOUND AND NOT(LIBRETRO))
++if(CURL_FOUND)
+   message(STATUS "Using shared libcurl")
+   include_directories(${CURL_INCLUDE_DIRS})
+ else()
