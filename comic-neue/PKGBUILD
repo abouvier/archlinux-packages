@@ -1,0 +1,30 @@
+# Maintainer: Alexandre Bouvier <contact@amb.tf>
+pkgbase=comic-neue
+_pkgbase=${pkgbase/-/}
+pkgname=({otf,ttf}-"$pkgbase")
+pkgver=2.51
+pkgrel=1
+pkgdesc="A font that fixes the shortcomings of Comic Sans"
+arch=('any')
+url="http://comicneue.com/"
+license=('OFL')
+provides=("$pkgbase")
+source=("$_pkgbase-$pkgver.zip::https://github.com/crozynski/comicneue/archive/refs/tags/$pkgver.zip")
+b2sums=('2623f829a9b2b0a9427a28247e32f0ace25eca5343b4aad970db1a9d759c739b1590a466611caf45dca5c6806f1ea5e4d53a47a7ba3e60eae4a8304a2bc2c0c0')
+
+package_otf-comic-neue() {
+	pkgdesc+=" (OpenType)"
+
+	cd $_pkgbase-$pkgver
+	# shellcheck disable=SC2154
+	install -Dm644 -t "$pkgdir"/usr/share/fonts/OTF Fonts/OTF/*/*.otf
+	install -Dm644 -t "$pkgdir"/usr/share/licenses/otf-$pkgbase OFL.txt
+}
+
+package_ttf-comic-neue() {
+	pkgdesc+=" (TrueType)"
+
+	cd $_pkgbase-$pkgver
+	install -Dm644 -t "$pkgdir"/usr/share/fonts/TTF Fonts/TTF/*/*.ttf
+	install -Dm644 -t "$pkgdir"/usr/share/licenses/ttf-$pkgbase OFL.txt
+}
