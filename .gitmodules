@@ -145,3 +145,9 @@
 [submodule "libretro-mega-bezel-git"]
 	path = libretro-mega-bezel-git
 	url = https://aur.archlinux.org/libretro-mega-bezel-git.git
+[submodule "php-parle-git"]
+	path = php-parle-git
+	url = https://aur.archlinux.org/php-parle-git.git
+[submodule "php-dbus-git"]
+	path = php-dbus-git
+	url = https://aur.archlinux.org/php-dbus-git.git
