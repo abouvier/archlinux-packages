@@ -151,3 +151,6 @@
 [submodule "php-dbus-git"]
 	path = php-dbus-git
 	url = https://aur.archlinux.org/php-dbus-git.git
+[submodule "libretro-ecwolf-git"]
+	path = libretro-ecwolf-git
+	url = https://aur.archlinux.org/libretro-ecwolf-git.git
