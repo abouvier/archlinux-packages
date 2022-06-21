@@ -42,7 +42,6 @@ pkgver() {
 
 prepare() {
 	cd $_pkgname
-	git submodule init externals/{dynarmic,fmt,lodepng/lodepng,nihstro,soundtouch,teakra,xbyak}
 	git config submodule.dynarmic.url ../citra-dynarmic
 	git config submodule.fmt.url ../fmt
 	git config submodule.lodepng.url ../lodepng
