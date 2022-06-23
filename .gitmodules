@@ -154,3 +154,6 @@
 [submodule "libretro-ecwolf-git"]
 	path = libretro-ecwolf-git
 	url = https://aur.archlinux.org/libretro-ecwolf-git.git
+[submodule "libretro-tic-80-git"]
+	path = libretro-tic-80-git
+	url = https://aur.archlinux.org/libretro-tic-80-git.git
