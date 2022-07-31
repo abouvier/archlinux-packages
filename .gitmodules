@@ -142,9 +142,6 @@
 [submodule "emacs-dracula-theme-git"]
 	path = emacs-dracula-theme-git
 	url = https://aur.archlinux.org/emacs-dracula-theme-git.git
-[submodule "libretro-mega-bezel-git"]
-	path = libretro-mega-bezel-git
-	url = https://aur.archlinux.org/libretro-mega-bezel-git.git
 [submodule "php-parle-git"]
 	path = php-parle-git
 	url = https://aur.archlinux.org/php-parle-git.git
