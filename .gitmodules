@@ -154,3 +154,12 @@
 [submodule "libretro-tic-80-git"]
 	path = libretro-tic-80-git
 	url = https://aur.archlinux.org/libretro-tic-80-git.git
+[submodule "cemu-git"]
+	path = cemu-git
+	url = https://aur.archlinux.org/cemu-git.git
+[submodule "zarchive-git"]
+	path = zarchive-git
+	url = https://aur.archlinux.org/zarchive-git.git
+[submodule "dynarmic"]
+	path = dynarmic
+	url = https://aur.archlinux.org/dynarmic.git
