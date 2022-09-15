@@ -163,3 +163,6 @@
 [submodule "dynarmic"]
 	path = dynarmic
 	url = https://aur.archlinux.org/dynarmic.git
+[submodule "cubeb-git"]
+	path = cubeb-git
+	url = https://aur.archlinux.org/cubeb-git.git
