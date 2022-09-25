@@ -166,3 +166,6 @@
 [submodule "cubeb-git"]
 	path = cubeb-git
 	url = https://aur.archlinux.org/cubeb-git.git
+[submodule "cpp-jwt-git"]
+	path = cpp-jwt-git
+	url = https://aur.archlinux.org/cpp-jwt-git.git
