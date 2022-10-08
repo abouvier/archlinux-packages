@@ -169,3 +169,6 @@
 [submodule "cpp-jwt-git"]
 	path = cpp-jwt-git
 	url = https://aur.archlinux.org/cpp-jwt-git.git
+[submodule "volk-git"]
+	path = volk-git
+	url = https://aur.archlinux.org/volk-git.git
