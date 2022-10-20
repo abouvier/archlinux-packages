@@ -49,7 +49,7 @@ prepare() {
 	git config submodule.soundtouch.url ../citra-soundtouch
 	git config submodule.teakra.url ../teakra
 	git config submodule.xbyak.url ../xbyak
-	git submodule update
+	git -c protocol.file.allow=always submodule update
 	patch -Np1 < ../unbundle-libs.patch
 	sed -i 's/-O[0123s]//;s/-Ofast//' Makefile
 }
