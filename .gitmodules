@@ -175,3 +175,6 @@
 [submodule "luabridge-git"]
 	path = luabridge-git
 	url = https://aur.archlinux.org/luabridge-git.git
+[submodule "dracula-dircolors-git"]
+	path = dracula-dircolors-git
+	url = https://aur.archlinux.org/dracula-dircolors-git.git
