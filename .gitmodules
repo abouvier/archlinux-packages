@@ -178,3 +178,6 @@
 [submodule "dracula-dircolors-git"]
 	path = dracula-dircolors-git
 	url = https://aur.archlinux.org/dracula-dircolors-git.git
+[submodule "advancescan-git"]
+	path = advancescan-git
+	url = https://aur.archlinux.org/advancescan-git.git
