@@ -181,3 +181,6 @@
 [submodule "advancescan-git"]
 	path = advancescan-git
 	url = https://aur.archlinux.org/advancescan-git.git
+[submodule "libretro-lrps2-git"]
+	path = libretro-lrps2-git
+	url = https://aur.archlinux.org/libretro-lrps2-git.git
