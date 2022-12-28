@@ -184,3 +184,6 @@
 [submodule "libretro-lrps2-git"]
 	path = libretro-lrps2-git
 	url = https://aur.archlinux.org/libretro-lrps2-git.git
+[submodule "vulkan-headers-git"]
+	path = vulkan-headers-git
+	url = https://aur.archlinux.org/vulkan-headers-git.git
