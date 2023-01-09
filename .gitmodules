@@ -52,9 +52,6 @@
 [submodule "libretro-core-info-git"]
 	path = libretro-core-info-git
 	url = https://aur.archlinux.org/libretro-core-info-git.git
-[submodule "libretro-pcsx2-git"]
-	path = libretro-pcsx2-git
-	url = https://aur.archlinux.org/libretro-pcsx2-git.git
 [submodule "libretro-genesis-plus-gx-wide-git"]
 	path = libretro-genesis-plus-gx-wide-git
 	url = https://aur.archlinux.org/libretro-genesis-plus-gx-wide-git.git
