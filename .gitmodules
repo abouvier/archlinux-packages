@@ -184,3 +184,6 @@
 [submodule "vulkan-headers-git"]
 	path = vulkan-headers-git
 	url = https://aur.archlinux.org/vulkan-headers-git.git
+[submodule "libretro-numero-git"]
+	path = libretro-numero-git
+	url = https://aur.archlinux.org/libretro-numero-git.git
