@@ -187,3 +187,6 @@
 [submodule "libretro-numero-git"]
 	path = libretro-numero-git
 	url = https://aur.archlinux.org/libretro-numero-git.git
+[submodule "libretro-mesen-s-git"]
+	path = libretro-mesen-s-git
+	url = https://aur.archlinux.org/libretro-mesen-s-git.git
