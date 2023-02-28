@@ -190,3 +190,6 @@
 [submodule "libretro-mesen-s-git"]
 	path = libretro-mesen-s-git
 	url = https://aur.archlinux.org/libretro-mesen-s-git.git
+[submodule "cpp-httplib-git"]
+	path = cpp-httplib-git
+	url = https://aur.archlinux.org/cpp-httplib-git.git
