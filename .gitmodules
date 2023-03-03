@@ -82,9 +82,6 @@
 [submodule "xbyak-git"]
 	path = xbyak-git
 	url = https://aur.archlinux.org/xbyak-git.git
-[submodule "yuzu"]
-	path = yuzu
-	url = https://aur.archlinux.org/yuzu.git
 [submodule "discord-rpc-git"]
 	path = discord-rpc-git
 	url = https://aur.archlinux.org/discord-rpc-git.git
