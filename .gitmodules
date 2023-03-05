@@ -190,3 +190,6 @@
 [submodule "cpp-httplib-git"]
 	path = cpp-httplib-git
 	url = https://aur.archlinux.org/cpp-httplib-git.git
+[submodule "virtualsmartcard-git"]
+	path = virtualsmartcard-git
+	url = https://aur.archlinux.org/virtualsmartcard-git.git
