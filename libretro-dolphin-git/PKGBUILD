@@ -1,7 +1,7 @@
 # Maintainer: Alexandre Bouvier <contact@amb.tf>
 _pkgname=libretro-dolphin
 pkgname=$_pkgname-git
-pkgver=r33011.6a0b6ee8a4
+pkgver=r33042.2f4b0f7902
 pkgrel=1
 pkgdesc="Nintendo GameCube/Wii core"
 arch=('x86_64')
@@ -17,6 +17,7 @@ depends=(
 	'libevdev'
 	'libretro-core-info'
 	'libusb'
+	'libxi'
 	'lzo'
 	'mbedtls'
 	'pugixml'
@@ -29,7 +30,7 @@ makedepends=(
 	'cmake'
 	'curl'
 	'git'
-	'libglvnd'
+	'libgl'
 	'libpng'
 	'python'
 	'systemd'
@@ -61,6 +62,8 @@ prepare() {
 build() {
 	cmake -S $_pkgname -B build \
 		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
+		-DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG" \
 		-DCMAKE_INSTALL_PREFIX=/usr \
 		-DENABLE_LTO=OFF \
 		-DENABLE_TESTS=OFF \
