@@ -193,3 +193,6 @@
 [submodule "virtualsmartcard-git"]
 	path = virtualsmartcard-git
 	url = https://aur.archlinux.org/virtualsmartcard-git.git
+[submodule "ps3dec-git"]
+	path = ps3dec-git
+	url = https://aur.archlinux.org/ps3dec-git.git
