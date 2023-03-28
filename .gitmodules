@@ -196,3 +196,6 @@
 [submodule "ps3dec-git"]
 	path = ps3dec-git
 	url = https://aur.archlinux.org/ps3dec-git.git
+[submodule "capsimage-git"]
+	path = capsimage-git
+	url = https://aur.archlinux.org/capsimage-git.git
