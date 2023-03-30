@@ -199,3 +199,6 @@
 [submodule "capsimage-git"]
 	path = capsimage-git
 	url = https://aur.archlinux.org/capsimage-git.git
+[submodule "libretro-minivmac-git"]
+	path = libretro-minivmac-git
+	url = https://aur.archlinux.org/libretro-minivmac-git.git
