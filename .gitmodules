@@ -202,3 +202,6 @@
 [submodule "libretro-minivmac-git"]
 	path = libretro-minivmac-git
 	url = https://aur.archlinux.org/libretro-minivmac-git.git
+[submodule "libretro-virtualxt-git"]
+	path = libretro-virtualxt-git
+	url = https://aur.archlinux.org/libretro-virtualxt-git.git
