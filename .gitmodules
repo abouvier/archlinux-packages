@@ -205,3 +205,6 @@
 [submodule "libretro-virtualxt-git"]
 	path = libretro-virtualxt-git
 	url = https://aur.archlinux.org/libretro-virtualxt-git.git
+[submodule "libretro-pcsx2-git"]
+	path = libretro-pcsx2-git
+	url = https://aur.archlinux.org/libretro-pcsx2-git.git
