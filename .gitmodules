@@ -208,3 +208,6 @@
 [submodule "libretro-pcsx2-git"]
 	path = libretro-pcsx2-git
 	url = https://aur.archlinux.org/libretro-pcsx2-git.git
+[submodule "fmt-git"]
+	path = fmt-git
+	url = https://aur.archlinux.org/fmt-git.git
