@@ -211,3 +211,6 @@
 [submodule "fmt-git"]
 	path = fmt-git
 	url = https://aur.archlinux.org/fmt-git.git
+[submodule "libretro-vice-git"]
+	path = libretro-vice-git
+	url = https://aur.archlinux.org/libretro-vice-git.git
