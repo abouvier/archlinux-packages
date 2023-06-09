@@ -217,3 +217,18 @@
 [submodule "vulkan-memory-allocator"]
 	path = vulkan-memory-allocator
 	url = https://aur.archlinux.org/vulkan-memory-allocator.git
+[submodule "libretro-shaders-slang-git"]
+	path = libretro-shaders-slang-git
+	url = https://aur.archlinux.org/libretro-shaders-slang-git.git
+[submodule "libretro-dolphin-git"]
+	path = libretro-dolphin-git
+	url = https://aur.archlinux.org/libretro-dolphin-git.git
+[submodule "libretro-bsnes-git"]
+	path = libretro-bsnes-git
+	url = https://aur.archlinux.org/libretro-bsnes-git.git
+[submodule "libretro-snes9x-git"]
+	path = libretro-snes9x-git
+	url = https://aur.archlinux.org/libretro-snes9x-git.git
+[submodule "libretro-citra-git"]
+	path = libretro-citra-git
+	url = https://aur.archlinux.org/libretro-citra-git.git
