@@ -1,7 +1,7 @@
 # Maintainer: Alexandre Bouvier <contact@amb.tf>
 _pkgname=yuzu
 pkgname=$_pkgname-git
-pkgver=1428.r0.gb64a27db8
+pkgver=1483.r0.g0555cc182
 pkgrel=1
 pkgdesc="Nintendo Switch emulator"
 arch=('aarch64' 'x86_64')
@@ -26,7 +26,7 @@ makedepends=(
 	'cpp-httplib>=0.12'
 	'cpp-jwt>=1.4'
 	'cubeb'
-	'dynarmic>=6.4.7'
+	'dynarmic>=6.4.8'
 	'ffmpeg>=2:4.3.1'
 	'fmt>=9'
 	'git'
@@ -41,6 +41,7 @@ makedepends=(
 	'qt5-tools>=5.15'
 	'spirv-headers>=1:1.2.198'
 	'vulkan-headers>=1:1.3.246'
+	'vulkan-icd-loader'
 	'xbyak>=6.68'
 	'zstd>=1.5'
 )
@@ -51,9 +52,15 @@ source=(
 	'yuzu-mainline::git+https://github.com/yuzu-emu/yuzu-mainline.git'
 	'yuzu-mbedtls::git+https://github.com/yuzu-emu/mbedtls.git'
 	'yuzu-sirit::git+https://github.com/yuzu-emu/sirit.git'
+	'git+https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git'
+	'git+https://github.com/eggert/tz.git'
+	'git+https://github.com/lat9nq/tzdb_to_nx.git'
 	'compatibility_list.json.xz'
 )
 b2sums=(
+	'SKIP'
+	'SKIP'
+	'SKIP'
 	'SKIP'
 	'SKIP'
 	'SKIP'
@@ -70,6 +77,12 @@ prepare() {
 	cp ../compatibility_list.json dist/compatibility_list
 	git config submodule.mbedtls.url ../yuzu-mbedtls
 	git config submodule.sirit.url ../yuzu-sirit
+	git config submodule.tzdb_to_nx.url ../tzdb_to_nx
+	git config submodule.VulkanMemoryAllocator.url ../VulkanMemoryAllocator
+	git -c protocol.file.allow=always submodule update
+	cd externals/nx_tzdb/tzdb_to_nx
+	# shellcheck disable=SC2154
+	git config submodule.externals/tz/tz.url "$srcdir"/tz
 	git -c protocol.file.allow=always submodule update
 }
 
