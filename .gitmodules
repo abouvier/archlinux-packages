@@ -232,3 +232,6 @@
 [submodule "libretro-citra-git"]
 	path = libretro-citra-git
 	url = https://aur.archlinux.org/libretro-citra-git.git
+[submodule "rpcsx-git"]
+	path = rpcsx-git
+	url = https://aur.archlinux.org/rpcsx-git.git
