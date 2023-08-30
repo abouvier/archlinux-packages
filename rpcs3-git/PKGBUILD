@@ -1,0 +1,141 @@
+# Maintainer: Alexandre Bouvier <contact@amb.tf>
+_pkgname=rpcs3
+pkgname=$_pkgname-git
+pkgver=0.0.29.r130.g565a208f20
+pkgrel=1
+pkgdesc="Sony PlayStation 3 emulator"
+arch=('x86_64')
+url="https://rpcs3.net/"
+license=('GPL2')
+depends=(
+	'faudio'
+	'gcc-libs'
+	'glibc'
+	'hicolor-icon-theme'
+	'libx11'
+	'llvm-libs'
+	'pugixml'
+	'qt6-base'
+	'qt6-multimedia'
+	'qt6-svg'
+	'sdl2'
+)
+makedepends=(
+	'alsa-lib'
+	'cmake'
+	'curl'
+	'ffmpeg'
+	'flatbuffers'
+	'git'
+	'glew'
+	'jack2'
+	'libevdev'
+	'libglvnd'
+	'libpng'
+	'libusb'
+	'llvm>=16'
+	'openal'
+	'python'
+	'systemd-libs'
+	'vulkan-headers'
+	'vulkan-icd-loader'
+	# 'wolfssl'
+	'xxhash'
+	'zlib'
+)
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+options=('!lto') # https://github.com/RPCS3/rpcs3/issues/12013
+source=(
+	"$_pkgname::git+https://github.com/RPCS3/rpcs3.git"
+	"$_pkgname-asmjit::git+https://github.com/RPCS3/asmjit.git#branch=aarch64"
+	"$_pkgname-hidapi::git+https://github.com/RPCS3/hidapi.git#branch=master"
+	"$_pkgname-soundtouch::git+https://github.com/RPCS3/soundtouch.git"
+	"$_pkgname-yaml-cpp::git+https://github.com/RPCS3/yaml-cpp.git"
+	'cubeb::git+https://github.com/mozilla/cubeb.git'
+	'glslang::git+https://github.com/KhronosGroup/glslang.git'
+	'miniupnp::git+https://github.com/miniupnp/miniupnp.git'
+	'rtmidi::git+https://github.com/thestk/rtmidi.git'
+	'wolfssl::git+https://github.com/wolfSSL/wolfssl.git'
+)
+b2sums=(
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+	'SKIP'
+)
+
+pkgver() {
+	cd $_pkgname
+	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+	cd $_pkgname
+	git config submodule.3rdparty/cubeb/cubeb.url ../cubeb
+	git config submodule.3rdparty/glslang.url ../glslang
+	git config submodule.3rdparty/hidapi.url ../$_pkgname-hidapi
+	git config submodule.3rdparty/miniupnp/miniupnp.url ../miniupnp
+	git config submodule.3rdparty/rtmidi/rtmidi.url ../rtmidi
+	git config submodule.3rdparty/SoundTouch/soundtouch.url ../$_pkgname-soundtouch
+	git config submodule.3rdparty/wolfssl.url ../wolfssl
+	git config submodule.3rdparty/yaml-cpp.url ../$_pkgname-yaml-cpp
+	git config submodule.asmjit.url ../$_pkgname-asmjit
+	git -c protocol.file.allow=always submodule update
+	sed -i '/SDL2_TARGET 3rdparty_sdl2/a target_link_libraries(3rdparty_sdl2 INTERFACE SDL2::SDL2)' 3rdparty/CMakeLists.txt
+}
+
+build() {
+	cmake -S $_pkgname -B build \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
+		-DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG" \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DUSE_NATIVE_INSTRUCTIONS=OFF \
+		-DUSE_SDL=ON \
+		-DUSE_SYSTEM_CURL=ON \
+		-DUSE_SYSTEM_FAUDIO=ON \
+		-DUSE_SYSTEM_FFMPEG=ON \
+		-DUSE_SYSTEM_FLATBUFFERS=ON \
+		-DUSE_SYSTEM_LIBPNG=ON \
+		-DUSE_SYSTEM_LIBUSB=ON \
+		-DUSE_SYSTEM_PUGIXML=ON \
+		-DUSE_SYSTEM_SDL=ON \
+		-DUSE_SYSTEM_WOLFSSL=OFF \
+		-DUSE_SYSTEM_XXHASH=ON \
+		-Wno-dev
+	cmake --build build
+}
+
+package() {
+	depends+=(
+		'libasound.so'
+		'libavcodec.so'
+		'libavformat.so'
+		'libavutil.so'
+		'libcurl.so'
+		'libevdev.so'
+		'libGLEW.so'
+		'libGLX.so'
+		'libjack.so'
+		'libopenal.so'
+		'libOpenGL.so'
+		'libpng16.so'
+		'libswresample.so'
+		'libswscale.so'
+		'libudev.so'
+		'libusb-1.0.so'
+		'libvulkan.so'
+		# 'libwolfssl.so'
+		'libxxhash.so'
+		'libz.so'
+	)
+	# shellcheck disable=SC2154
+	DESTDIR="$pkgdir" cmake --install build
+}
