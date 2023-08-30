@@ -235,3 +235,9 @@
 [submodule "rpcsx-git"]
 	path = rpcsx-git
 	url = https://aur.archlinux.org/rpcsx-git.git
+[submodule "fmt9"]
+	path = fmt9
+	url = https://aur.archlinux.org/fmt9.git
+[submodule "libretro-play-git"]
+	path = libretro-play-git
+	url = https://aur.archlinux.org/libretro-play-git.git
