@@ -241,3 +241,6 @@
 [submodule "libretro-play-git"]
 	path = libretro-play-git
 	url = https://aur.archlinux.org/libretro-play-git.git
+[submodule "ndecrypt-git"]
+	path = ndecrypt-git
+	url = https://aur.archlinux.org/ndecrypt-git.git
