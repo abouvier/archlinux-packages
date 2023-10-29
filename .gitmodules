@@ -247,3 +247,6 @@
 [submodule "stb-git"]
 	path = stb-git
 	url = https://aur.archlinux.org/stb-git.git
+[submodule "apotris-git"]
+	path = apotris-git
+	url = https://aur.archlinux.org/apotris-git.git
