@@ -250,3 +250,6 @@
 [submodule "apotris-git"]
 	path = apotris-git
 	url = https://aur.archlinux.org/apotris-git.git
+[submodule "simpleini-git"]
+	path = simpleini-git
+	url = https://aur.archlinux.org/simpleini-git.git
