@@ -253,3 +253,6 @@
 [submodule "simpleini-git"]
 	path = simpleini-git
 	url = https://aur.archlinux.org/simpleini-git.git
+[submodule "libretro-melondsds-git"]
+	path = libretro-melondsds-git
+	url = https://aur.archlinux.org/libretro-melondsds-git.git
