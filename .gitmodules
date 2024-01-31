@@ -259,3 +259,6 @@
 [submodule "oaknut-git"]
 	path = oaknut-git
 	url = https://aur.archlinux.org/oaknut-git.git
+[submodule "libretro-reminiscence-git"]
+	path = libretro-reminiscence-git
+	url = https://aur.archlinux.org/libretro-reminiscence-git.git
