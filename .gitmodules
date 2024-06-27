@@ -262,3 +262,6 @@
 [submodule "libretro-reminiscence-git"]
 	path = libretro-reminiscence-git
 	url = https://aur.archlinux.org/libretro-reminiscence-git.git
+[submodule "shadps4-git"]
+	path = shadps4-git
+	url = https://aur.archlinux.org/shadps4-git.git
