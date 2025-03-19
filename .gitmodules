@@ -55,9 +55,6 @@
 [submodule "libretro-genesis-plus-gx-wide-git"]
 	path = libretro-genesis-plus-gx-wide-git
 	url = https://aur.archlinux.org/libretro-genesis-plus-gx-wide-git.git
-[submodule "foobar2000-encoders-bin"]
-	path = foobar2000-encoders-bin
-	url = https://aur.archlinux.org/foobar2000-encoders-bin.git
 [submodule "torrent7z"]
 	path = torrent7z
 	url = https://aur.archlinux.org/torrent7z.git
@@ -265,3 +262,30 @@
 [submodule "shadps4-git"]
 	path = shadps4-git
 	url = https://aur.archlinux.org/shadps4-git.git
+[submodule "sdl-gamecontrollerdb-git"]
+	path = sdl-gamecontrollerdb-git
+	url = https://aur.archlinux.org/sdl-gamecontrollerdb-git.git
+[submodule "libretro-gearcoleco-git"]
+	path = libretro-gearcoleco-git
+	url = https://aur.archlinux.org/libretro-gearcoleco-git.git
+[submodule "libretro-desmume-git"]
+	path = libretro-desmume-git
+	url = https://aur.archlinux.org/libretro-desmume-git.git
+[submodule "libretro-panda3ds-git"]
+	path = libretro-panda3ds-git
+	url = https://aur.archlinux.org/libretro-panda3ds-git.git
+[submodule "cmake"]
+	path = cmake
+	url = https://gitlab.archlinux.org/abouvier/cmake.git
+[submodule "azahar-git"]
+	path = azahar-git
+	url = https://aur.archlinux.org/azahar-git.git
+[submodule "teakra-git"]
+	path = teakra-git
+	url = https://aur.archlinux.org/teakra-git.git
+[submodule "libretro-dice-git"]
+	path = libretro-dice-git
+	url = https://aur.archlinux.org/libretro-dice-git.git
+[submodule "foobar2000-encoders"]
+	path = foobar2000-encoders
+	url = https://aur.archlinux.org/foobar2000-encoders.git
